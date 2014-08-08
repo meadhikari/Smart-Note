@@ -65,6 +65,7 @@ public class NewNotes extends ActionBarActivity {
                         nds.insertNotes(title.getText().toString(),content.getText().toString());
                         Toast.makeText(getApplicationContext(),"Note Added.",Toast.LENGTH_LONG).show();
                         Intent i = new Intent(NewNotes.this,MainActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }
                     else
