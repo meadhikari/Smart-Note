@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:gravity="center"
+   android:layout_marginLeft="@dimen/activity_horizontal_margin"
+   android:layout_marginRight="@dimen/activity_horizontal_margin"
+   android:orientation="vertical"
+   android:background="#E0EEEE">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:background="@drawable/card"
+        android:padding="5dp"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:text="title"
+            android:textSize="45dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <View android:id="@+id/separator"
+            android:background="#ffffff"
+            android:layout_width = "fill_parent"
+            android:layout_height="1dip"
+            android:layout_centerVertical ="true"
+            android:layout_alignParentTop="true"/>
+        <TextView
+            android:id="@+id/last_reviewed"
+            android:layout_below="@id/title"
+            android:textSize="15dp"
+            android:text="24 minutes ago"
+            android:padding="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/total_reviews"
+
+            android:padding="2dp"
+            android:layout_below="@+id/last_reviewed"
+            android:textSize="15dp"
+            android:text="15 times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+</LinearLayout>
