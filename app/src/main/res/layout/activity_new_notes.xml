@@ -17,7 +17,12 @@
         android:singleLine="true"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-         />
+        android:inputType="textCapSentences"
+
+
+
+
+        />
 
     <EditText
         android:layout_width="fill_parent"
