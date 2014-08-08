@@ -60,7 +60,7 @@ public class NewNotes extends ActionBarActivity {
             public void onClick(View v) {
                 try{
                     NotesDataSource nds = new NotesDataSource(getApplicationContext());
-                    if (!title.getText().toString().equals("") || !content.getText().toString().equals("") )
+                    if (!title.getText().toString().trim().isEmpty() && !content.getText().toString().trim().isEmpty() )
                     {
                         nds.insertNotes(title.getText().toString(),content.getText().toString());
                         Toast.makeText(getApplicationContext(),"Note Added.",Toast.LENGTH_LONG).show();
