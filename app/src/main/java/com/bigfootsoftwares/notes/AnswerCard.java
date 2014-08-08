@@ -101,6 +101,7 @@ public class AnswerCard extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -123,5 +124,5 @@ public class AnswerCard extends ActionBarActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
-    }
+    }*/
 }

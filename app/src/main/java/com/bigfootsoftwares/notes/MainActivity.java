@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity
     }
 
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
-    }
+    }*/
 
     public boolean onContextItemSelected(MenuItem paramMenuItem)
     {

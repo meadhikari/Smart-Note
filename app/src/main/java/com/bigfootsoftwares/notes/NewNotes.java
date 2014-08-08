@@ -123,6 +123,7 @@ public class NewNotes extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -145,5 +146,5 @@ public class NewNotes extends ActionBarActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
-    }
+    }*/
 }
