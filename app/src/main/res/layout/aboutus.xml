@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -11,21 +9,23 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
             android:textSize="30dp"
             android:background="#00b5b5"
             android:gravity="center"
             android:textColor="#ffffff"
-            android:text="About"
-            android:layout_height="wrap_content" />
+            android:text="About" />
 
         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:id="@+id/content"
             android:padding="5dp"
             android:textSize="15dp"
-            android:gravity="center"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            android:gravity="center" />
+
     </LinearLayout>
+
 </ScrollView>

@@ -9,40 +9,30 @@
     android:orientation="vertical"
     tools:context="com.bigfootsoftwares.notes.NewNotes">
 
-
     <EditText
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
         android:hint="Title for content to remember"
         android:maxLines="1"
         android:singleLine="true"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:inputType="textCapSentences"
-
-
-
-
-        />
+        android:inputType="textCapSentences" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/content"
         android:maxLines="10"
         android:hint="Content"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/content"
-
-    />
+        android:layout_marginBottom="20dp" />
 
 
     <Button
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/start_remembering"
         android:text="Start Remembering"
         android:textColor="#fff"
-        android:background="@drawable/buttonselect"
-
-        android:layout_height="wrap_content" />
-
+        android:background="@drawable/buttonselect" />
 
 </LinearLayout>

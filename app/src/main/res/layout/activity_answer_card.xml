@@ -10,29 +10,31 @@
     tools:context="com.bigfootsoftwares.notes.AnswerCard">
 
     <TextView
-        android:id="@+id/title_answercard"
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_answercard"
         android:text="Title"
         android:textSize="20dp"
-        android:padding="5dp"
+        android:padding="5dp" />
 
-        android:layout_height="wrap_content" />
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="#CCC" />
+
     <ScrollView
-        android:layout_marginTop="20dp"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp">
 
         <TextView
-            android:id="@+id/content_answercard"
             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/content_answercard"
             android:text="Content goes here which will be a lot"
             android:textSize="20dp"
-            android:padding="5dp"
+            android:padding="5dp" />
 
-            android:layout_height="wrap_content" />
-        </ScrollView>
+    </ScrollView>
+
 </LinearLayout>
