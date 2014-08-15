@@ -13,7 +13,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:hint="Title for content to remember"
+        android:hint="@string/hint_note_title"
         android:maxLines="1"
         android:singleLine="true"
         android:inputType="textCapSentences" />
@@ -23,15 +23,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/content"
         android:maxLines="10"
-        android:hint="Content"
+        android:hint="@string/hint_note_content"
         android:layout_marginBottom="20dp" />
-
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/start_remembering"
-        android:text="Start Remembering"
+        android:text="@string/text_note_start_button"
         android:textColor="#fff"
         android:background="@drawable/buttonselect" />
 

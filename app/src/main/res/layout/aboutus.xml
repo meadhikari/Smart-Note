@@ -16,7 +16,7 @@
             android:background="#00b5b5"
             android:gravity="center"
             android:textColor="#ffffff"
-            android:text="About" />
+            android:text="@string/text_title_about" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -24,7 +24,8 @@
             android:id="@+id/content"
             android:padding="5dp"
             android:textSize="15dp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="@string/text_about"/>
 
     </LinearLayout>
 
