@@ -1,6 +1,5 @@
 package com.bigfootsoftwares.notes;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,10 +7,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
-import android.text.SpannableString;
-import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,20 +59,18 @@ public class NewNotes extends ActionBarActivity {
                     if (!title.getText().toString().trim().isEmpty() && !content.getText().toString().trim().isEmpty() )
                     {
                         nds.insertNotes(title.getText().toString(),content.getText().toString());
-                        Toast.makeText(getApplicationContext(),"Note Added.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.toast_note_added,Toast.LENGTH_LONG).show();
                         Intent i = new Intent(NewNotes.this,MainActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }
                     else
                     {
-                        Toast.makeText(getApplicationContext(),"Please write something.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),R.string.toast_error_blank,Toast.LENGTH_LONG).show();
                     }
-
-
                 }
                 catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Error Please try again",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),R.string.toast_error,Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -106,14 +100,8 @@ public class NewNotes extends ActionBarActivity {
             Typeface localTypeface = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
             localTextView1.setTypeface(localTypeface);
             TextView localTextView2 = (TextView)localView.findViewById(R.id.content);
-            SpannableString localSpannableString = new SpannableString("Humans more easily remember or learn items when they are studied a few times spaced over a long time span rather than repeatedly studied in a short span of time\n\n" +
-                    "Just click on the + icon and start adding notes and let the app handle the remembering part for you\n\n" +
-                    "Long press a note to delete it\n\n\n" +
-                    "Warning: Having too many notes at once could lead to multiple notification making this app unusable, limit to few notes at a time to get the most from the app");
-            Linkify.addLinks(localSpannableString, 15);
             localTextView2.setTypeface(localTypeface);
-            localTextView2.setText(localSpannableString);
-            localBuilder.setView(localView).setPositiveButton("Ok", new DialogInterface.OnClickListener()
+            localBuilder.setView(localView).setPositiveButton(R.string.dialog_ok_button, new DialogInterface.OnClickListener()
             {
                 public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
                 {

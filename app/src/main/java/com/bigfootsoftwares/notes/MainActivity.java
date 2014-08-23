@@ -3,14 +3,12 @@ package com.bigfootsoftwares.notes;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
-import android.text.SpannableString;
-import android.text.util.Linkify;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -110,10 +107,6 @@ public class MainActivity extends ActionBarActivity
         getApplicationContext().startService(localIntent);
         tips = (TextView) findViewById(R.id.tips);
         tips.setTypeface(face);
-        SpannableString localSpannableString = new SpannableString("Humans more easily remember or learn items when they are studied a few times spaced over a long time span rather than repeatedly studied in a short span of time\n\n" +
-                "Just click on the + icon and start adding notes and let the app handle the rest\n\n" +
-                "Warning: Having too many notes at once could lead to multiple notification making this app unusable, limit to few notes at a time to get the most from the app");
-        tips.setText(localSpannableString);
         List<NoteItems> items = MainActivity.this.getDataForListView();
         if (items.size() != 0)
         {
@@ -167,14 +160,8 @@ public class MainActivity extends ActionBarActivity
             Typeface localTypeface = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
             localTextView1.setTypeface(localTypeface);
             TextView localTextView2 = (TextView)localView.findViewById(R.id.content);
-            SpannableString localSpannableString = new SpannableString("Humans more easily remember or learn items when they are studied a few times spaced over a long time span rather than repeatedly studied in a short span of time\n\n" +
-                    "Just click on the + icon and start adding notes and let the app handle the remembering part for you\n\n" +
-                    "Long press a note to delete it\n\n\n" +
-                    "Warning: Having too many notes at once could lead to multiple notification making this app unusable, limit to few notes at a time to get the most from the app");
-            Linkify.addLinks(localSpannableString, 15);
             localTextView2.setTypeface(localTypeface);
-            localTextView2.setText(localSpannableString);
-            localBuilder.setView(localView).setPositiveButton("Ok", new DialogInterface.OnClickListener()
+            localBuilder.setView(localView).setPositiveButton(R.string.dialog_ok_button, new DialogInterface.OnClickListener()
             {
                 public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
                 {
@@ -232,9 +219,12 @@ public class MainActivity extends ActionBarActivity
             Object[] arrayOfObject = new Object[2];
             arrayOfObject[0] = Long.valueOf(TimeUnit.MILLISECONDS.toMinutes(l2));
             arrayOfObject[1] = Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(l2) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l2)));
-            String str = String.format("%d min, %d sec", arrayOfObject);
-            localTextView2.setText("Last seen: " + str + " ago");
-            localTextView3.setText("Notification sent: " + localNoteItems.total_reviews + " times");
+
+            Resources mResources = getResources();
+            String str = String.format("%d "+mResources.getString(R.string.text_minute)+", %d "+mResources.getString(R.string.text_second), arrayOfObject);
+            localTextView2.setText(mResources.getString(R.string.text_last_seen) +" "+ str +" "+ mResources.getString(R.string.text_ago));
+            localTextView3.setText(mResources.getString(R.string.text_sent) +" "+ localNoteItems.total_reviews +" "+ mResources.getString(R.string.text_times));
+
             return paramView;
         }
     }

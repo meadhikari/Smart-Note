@@ -10,12 +10,7 @@ import android.os.IBinder;
 
 import java.util.List;
 
-
-
 public class SpacedService extends Service {
-
-
-
 
     @Override
     public void onCreate() {
@@ -33,9 +28,6 @@ public class SpacedService extends Service {
                 handler.postDelayed(this, 120000/2); //now is every 2 minutes
             }
         }, 120000/2);
-
-
-
     }
 
     @Override
@@ -50,7 +42,9 @@ public class SpacedService extends Service {
 
         int random = message.hashCode();
         final NotificationManager mgr= (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        Notification note=new Notification(R.drawable.ic_launcher,"Smart Note "+"::"+title,System.currentTimeMillis());
+        Notification note=new Notification(R.drawable.ic_launcher,
+                getResources().getString(R.string.notification_ticker)+" :: "+title,
+                System.currentTimeMillis());
 
         // This pending intent will open after notification click
         Intent intent = new Intent(this,AnswerCard.class);
@@ -59,7 +53,7 @@ public class SpacedService extends Service {
         intent.putExtra("from","notification");
         PendingIntent i=PendingIntent.getActivity(this, random,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        note.setLatestEventInfo(this,title,"Reminder From"+" Smart Note", i);
+        note.setLatestEventInfo(this, title, getResources().getString(R.string.notification_content), i);
         //note.number=2;
         note.flags |= Notification.FLAG_AUTO_CANCEL;
 

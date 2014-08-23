@@ -6,18 +6,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.util.Linkify;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 
 public class AnswerCard extends ActionBarActivity {
 
@@ -30,7 +24,6 @@ public class AnswerCard extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer_card);
         getSupportActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-        getSupportActionBar().setTitle("Note");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00b5b5")));
         int titleId = getResources().getIdentifier("action_bar_title", "id","android");
         TextView yourTextView = (TextView) findViewById(titleId);
@@ -54,10 +47,6 @@ public class AnswerCard extends ActionBarActivity {
         title_tv.setText(title);
         content_tv.setText(content);
         //Toast.makeText(getApplicationContext(),content,Toast.LENGTH_LONG).show();
-
-
-
-
 
     }
 
@@ -83,14 +72,8 @@ public class AnswerCard extends ActionBarActivity {
             Typeface localTypeface = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
             localTextView1.setTypeface(localTypeface);
             TextView localTextView2 = (TextView)localView.findViewById(R.id.content);
-            SpannableString localSpannableString = new SpannableString("Humans more easily remember or learn items when they are studied a few times spaced over a long time span rather than repeatedly studied in a short span of time\n\n" +
-                    "Just click on the + icon and start adding notes and let the app handle the remembering part for you\n\n" +
-                    "Long press a note to delete it\n\n\n" +
-                    "Warning: Having too many notes at once could lead to multiple notification making this app unusable, limit to few notes at a time to get the most from the app");
-            Linkify.addLinks(localSpannableString, 15);
             localTextView2.setTypeface(localTypeface);
-            localTextView2.setText(localSpannableString);
-            localBuilder.setView(localView).setPositiveButton("Ok", new DialogInterface.OnClickListener()
+            localBuilder.setView(localView).setPositiveButton(R.string.dialog_ok_button, new DialogInterface.OnClickListener()
             {
                 public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
                 {
